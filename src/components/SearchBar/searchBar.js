@@ -32,7 +32,7 @@ const SearchBar = () => {
     setIsLoading(true);
     setNextQueryResponse(null);
     try {
-      const response = await axios.post("http://localhost:3001/query", {
+      const response = await axios.post("https://healthpath-backend.vercel.app/query", {
         input: query,
       });
       setQueryResponse(response.data);
@@ -54,7 +54,7 @@ const SearchBar = () => {
 
   //   try {
   //     const response = await axios.post(
-  //       "http://localhost:3001/upload",
+  //       "https://healthpath-backend.vercel.app/upload",
   //       formData,
   //       {
   //         headers: { "Content-Type": "multipart/form-data" },

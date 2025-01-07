@@ -23,7 +23,7 @@ const InitialTests = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3001/next-response", { input: query });
+      const response = await axios.post("https://healthpath-backend.vercel.app/next-response", { input: query });
       console.log("response.data", response.data);
       setNextQueryResponse(response.data);
     } catch (error) {

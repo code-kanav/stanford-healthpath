@@ -80,6 +80,7 @@ const SearchBar = () => {
         flexDirection: "column",
         alignItems: "center",
         mt: 4,
+        p: 0
       }}
     >
       <TextField
@@ -89,7 +90,7 @@ const SearchBar = () => {
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyPress} // Handle Enter key press
         sx={{
-          width: "50%",
+          width: { xs: "100%", sm: "50%", md: "50%" },
           "& .MuiOutlinedInput-root": {
             borderRadius: "14px",
           },

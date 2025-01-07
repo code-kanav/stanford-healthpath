@@ -71,7 +71,7 @@ const InitialTests = () => {
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
               flex: "1 1 calc(100% - 32px)", // Default to full width
               maxWidth: { xs: "100%", sm: "45%", md: "30%" }, // Adjust card width for responsive screens
-              minWidth: "372px", // Ensure minimum card width
+              minWidth: "368px", // Ensure minimum card width
             }}
           >
             <CardContent sx={{ padding: "24px" }}>

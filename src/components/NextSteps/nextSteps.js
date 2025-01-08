@@ -3,10 +3,10 @@ import { Card, CardContent, Container, Typography, Box } from "@mui/material";
 import { ResponseContext } from "../../context/responseContext";
 
 const NextSteps = () => {
-const { nextQueryResponse } = useContext(ResponseContext);
-  const data = nextQueryResponse?.response?.nextSteps;
+const { queryResponse } = useContext(ResponseContext);
+  const data = queryResponse?.response?.nextSteps;
 
-  if (!nextQueryResponse) {
+  if (!queryResponse) {
     return null;
   }
 

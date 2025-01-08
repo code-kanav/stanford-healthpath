@@ -13,36 +13,28 @@ const FAQ = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const faqs = [
     {
-      question: "What is the Stanford Medical Assistant?",
-      answer: "Stanford Medical Assistant is designed to provide health-related information, recommendations, and support. It analyzes your medical history, symptoms, and other relevant factors to assist you with preliminary guidance through interactive communication.",
+      question: "What is the Stanford HealthPath?",
+      answer: "Stanford HealthPath is a research project by Stanford’s HealthRex Lab that helps patients understand and explore potential healthcare pathways based on real clinical data patterns. It works like a navigation tool to help you understand your options and the typical paths other patients have taken.",
     },
     {
-      question: "Is the Stanford Medical Assistant a replacement for a doctor?",
-      answer: "While the Stanford Medical Assistant provides valuable health insights, it is not intended to replace the expertise of a real doctor. It offers preliminary guidance and general information, and we recommend consulting with a healthcare professional for specific health concerns or medical advice.",
+      question: "How does Stanford HealthPath work?",
+      answer: "You can enter your health concern or symptoms, and the system will show you common healthcare pathways based on patterns from Stanford Health Care data. The tool can also analyze any medical documents or images you upload to provide more personalized recommendations.",
     },
     {
-      question: "How accurate is the information provided by the Stanford Medical Assistant?",
-      answer: "The Stanford Medical Assistant strives to provide accurate and relevant information based on advanced AI modeling and training. However, for definitive diagnoses and treatment plans, consulting with a healthcare professional is essential.",
+      question: "Is this medical advice?",
+      answer: "No, Stanford HealthPath is a research tool designed to help you understand potential healthcare pathways. It should not be used as a substitute for professional medical advice. Always consult with your healthcare provider for medical decisions.",
     },
     {
-      question: "Is my personal information secure when using the Stanford Medical Assistant?",
-      answer: "Your privacy is a top priority for us. The Stanford Medical Assistant ensures that all data, including interactions with the Assistant, are protected with advanced encryption and security protocols, fully compliant with HIPAA and GDPR standards.",
+      question: "What kind of files can I upload?",
+      answer: "You can upload medical images (jpg, png) and PDF and DOCX reports related to your health concern. These files help provide context for generating more relevant pathway suggestions.",
     },
     {
-      question: "Can the Stanford Medical Assistant diagnose medical conditions?",
-      answer: "The Stanford Medical Assistant can suggest potential medical conditions based on the differential diagnosis process from the information you provide, but it cannot make definitive medical diagnoses. Always seek a professional evaluation for an accurate diagnosis.",
+      question: "How accurate is the information?",
+      answer: "The pathways shown are based on patterns from real Stanford Health Care clinical data. However, every patient's situation is unique, and actual treatment paths may vary.",
     },
     {
-      question: "Can the Stanford Medical Assistant prescribe medications?",
-      answer: "The Stanford Medical Assistant does not have the capability to prescribe medications. Medication prescriptions require a licensed healthcare professional who can evaluate your specific medical needs.",
-    },
-    {
-      question: "Is the Stanford Medical Assistant available 24/7?",
-      answer: "Yes, the Stanford Medical Assistant is available 24/7, allowing you to access health assistance anytime and anywhere, regardless of your subscription plan.",
-    },
-    {
-      question: "Can I use the Stanford Medical Assistant for emergency situations?",
-      answer: "The Stanford Medical Assistant is not equipped to handle emergency situations. In case of an emergency, contact your local emergency services or visit the nearest emergency room immediately.",
+      question: "What information will I see in the results?",
+      answer: "Results typically include: Potential diagnoses and their likelihood, Recommended tests and procedures, Estimated timelines for each step, Success rates for different treatment options.",
     },
   ];
   const handleExpandClick = (index) => {

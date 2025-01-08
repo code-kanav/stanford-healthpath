@@ -1,38 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import {
-  Button,
   Card,
   CardContent,
-  CircularProgress,
   Typography,
   Box,
   Container,
 } from "@mui/material";
 import { ResponseContext } from "../../context/responseContext";
-import axios from "axios";
 
 const InitialTests = () => {
-  const { queryResponse, nextQueryResponse } = useContext(ResponseContext);
-  const [isLoading, setIsLoading] = useState(false);
-  const { setNextQueryResponse } = useContext(ResponseContext);
-
-  const query = queryResponse ? queryResponse?.query : null;
-
-  const handleTextQuery = async () => {
-    if (!query.trim()) return alert("Please enter a query.");
-    setIsLoading(true);
-
-    try {
-      const response = await axios.post("https://healthpath-backend.vercel.app/next-response", { input: query });
-      console.log("response.data", response.data);
-      setNextQueryResponse(response.data);
-    } catch (error) {
-      console.error("Error querying the API:", error);
-      alert("Too Many Requests.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { queryResponse,  } = useContext(ResponseContext);
 
   if (!queryResponse) {
     return null;
@@ -116,32 +93,6 @@ const InitialTests = () => {
           </Card>
         ))}
       </Box>
-
-      {!nextQueryResponse && (
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "40px",
-          }}
-        >
-          <Button
-            onClick={handleTextQuery}
-            variant="contained"
-            color="primary"
-            disabled={isLoading}
-            sx={{
-              padding: "12px 20px",
-              borderRadius: "8px",
-              fontWeight: "bold",
-              fontSize: "16px",
-              marginBottom: "30px",
-            }}
-          >
-            {isLoading ? <CircularProgress size={28} color="inherit" /> : "Click here for complete diagnosis"}
-          </Button>
-        </Box>
-      )}
     </Container>
     </Box>
   );

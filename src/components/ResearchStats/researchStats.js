@@ -6,17 +6,17 @@ const ResearchStats = () => {
   const stats = [
     {
       icon: <MapOutlined style={{ fontSize: 50, color: "#4285F4" }} />,
-      number: "50,000+",
+      number: "2M+",
       label: "Patient journeys analyzed",
     },
     {
       icon: <PersonOutline style={{ fontSize: 50, color: "#34A853" }} />,
-      number: "200+",
+      number: "10K+",
       label: "Specialist insights",
     },
     {
       icon: <MenuBookOutlined style={{ fontSize: 50, color: "#FBBC05" }} />,
-      number: "15+",
+      number: "20+",
       label: "Medical specialties",
     },
   ];

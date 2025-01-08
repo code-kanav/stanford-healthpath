@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Box,
   Card,
@@ -17,24 +17,11 @@ import { ResponseContext } from "../../context/responseContext";
 
 const TreatmentCard = () => {
   const [expandedState, setExpandedState] = useState({}); // Track expansion for each card
-  const { nextQueryResponse } = useContext(ResponseContext);
-  const data = nextQueryResponse?.response?.possibleDiagnoses;
-  const scrollRef = useRef(null);
-  console.log("treatmentData", data);
+  const { queryResponse } = useContext(ResponseContext);
+  const data = queryResponse?.response?.possibleDiagnoses;
 
-  useEffect(() => {
-    if (nextQueryResponse) {
-      const element = scrollRef.current;
-      if (element) {
-        const offset = 107;
-        const top =
-          element.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: "smooth" });
-      }
-    }
-  }, [nextQueryResponse]);
 
-  if (!nextQueryResponse) {
+  if (!queryResponse) {
     return null;
   }
 
@@ -48,7 +35,7 @@ const TreatmentCard = () => {
 
   return (
     <Box sx={{ width: "100vw", backgroundColor: "#eef7fa", pt: 2, pb: 4 }}>
-      <Container ref={scrollRef}>
+      <Container>
         <Typography
           variant="h5"
           gutterBottom

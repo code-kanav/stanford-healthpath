@@ -44,7 +44,7 @@ const SearchBar = () => {
   
     setIsLoading(true);
     try {
-      const endpoint = file ? "https://healthpath-backend.vercel.app/upload" : "https://healthpath-backend.vercel.app/query";
+      const endpoint = file ? "http://localhost:3001/upload" : "http://localhost:3001/query";
       const config = file
         ? {
             headers: { "Content-Type": "multipart/form-data" },

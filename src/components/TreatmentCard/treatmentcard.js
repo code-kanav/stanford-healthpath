@@ -136,7 +136,7 @@ const TreatmentCard = () => {
                               }}
                             />
                             {option.timeline} <br></br>
-                            <Typography
+                            <span
                               color="text.secondary"
                               sx={{
                                 textAlign: "left",
@@ -154,7 +154,7 @@ const TreatmentCard = () => {
                                 }}
                               />
                               Success rate: {option.successRate}
-                            </Typography>
+                            </span>
                           </Typography>
                         </Box>
                         <ExpandMoreIcon

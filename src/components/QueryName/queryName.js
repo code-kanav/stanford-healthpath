@@ -5,7 +5,6 @@ import { ResponseContext } from "../../context/responseContext";
 const QueryName = () => {
   const { queryResponse } = useContext(ResponseContext);
   const scrollRef = useRef(null);
-  console.log(queryResponse)
   useEffect(() => {
     if (queryResponse) {
       const element = scrollRef.current;

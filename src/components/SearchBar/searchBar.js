@@ -30,10 +30,9 @@ const SearchBar = () => {
   const debounceTimeoutRef = useRef(null);
 
   const fetchSuggestions = async (query) => {
-    console.log("input", query);
     try {
       const response = await axios.post(
-        "http://localhost:3001/suggestions",
+        "https://healthpath-backend.onrender.com/suggestions",
         { input: query } // Use "input" as the key in the request payload
       );
       setSuggestions(response.data.suggestions || []);
@@ -72,7 +71,7 @@ const SearchBar = () => {
 
     setIsLoading(true);
     try {
-      const endpoint = file ? "http://localhost:3001/upload" : "http://localhost:3001/query";
+      const endpoint = file ? "https://healthpath-backend.onrender.com/upload" : "https://healthpath-backend.onrender.com/query";
       const config = file
         ? { headers: { "Content-Type": "multipart/form-data" } }
         : {};

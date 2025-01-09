@@ -51,7 +51,7 @@ const SearchBar = () => {
     }
 
     debounceTimeoutRef.current = setTimeout(() => {
-      if (input.trim().length >= 3) {
+      if (input.trim().length >= 2) {
         fetchSuggestions(input);
       } else {
         setSuggestions([]); // Clear suggestions if input is less than 3 characters

@@ -71,7 +71,7 @@ const SearchBar = () => {
 
     setIsLoading(true);
     try {
-      const endpoint = file ? "https://healthpath-backend.onrender.com/upload" : "https://healthpath-backend.onrender.com/query";
+      const endpoint = file ? "https://healthpath-backend-1l29.onrender.com/upload" : "https://healthpath-backend-1l29.onrender.com/query";
       const config = file
         ? { headers: { "Content-Type": "multipart/form-data" } }
         : {};

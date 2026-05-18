@@ -31,11 +31,10 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Backend
 
-Requires a running backend at `http://localhost:3001` with a `POST /query` endpoint.
-
-Production endpoints:
+Production endpoints (Render):
+- `POST https://healthpath-backend-1-vurf.onrender.com/query` — text query
+- `POST https://healthpath-backend-1-vurf.onrender.com/upload` — file + prompt
 - `POST https://healthpath-backend.onrender.com/suggestions` — autocomplete
-- `POST https://healthpath-backend-1l29.onrender.com/upload` — file + prompt
 
 ## Build
 

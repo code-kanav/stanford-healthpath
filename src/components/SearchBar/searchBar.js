@@ -22,9 +22,8 @@ import { ResponseContext } from "../../context/responseContext";
 const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [file, setFile] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
-  const { setQueryResponse } = useContext(ResponseContext);
+  const { setQueryResponse, isLoading, setIsLoading } = useContext(ResponseContext);
   const fileInputRef = useRef(null);
   const searchBoxRef = useRef(null); // Ref for detecting clicks outside
   const debounceTimeoutRef = useRef(null);
@@ -71,7 +70,7 @@ const SearchBar = () => {
 
     setIsLoading(true);
     try {
-      const endpoint = file ? "https://healthpath-backend-1l29.onrender.com/upload" : "https://healthpath-backend-1l29.onrender.com/query";
+      const endpoint = file ? "https://healthpath-backend-1l29.onrender.com/upload" : "http://localhost:3001/query";
       const config = file
         ? { headers: { "Content-Type": "multipart/form-data" } }
         : {};

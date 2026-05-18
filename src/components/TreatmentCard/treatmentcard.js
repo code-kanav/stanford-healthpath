@@ -8,6 +8,7 @@ import {
   Collapse,
   Divider,
   Container,
+  Skeleton,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -16,10 +17,36 @@ import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import { ResponseContext } from "../../context/responseContext";
 
 const TreatmentCard = () => {
-  const [expandedState, setExpandedState] = useState({}); // Track expansion for each card
-  const { queryResponse } = useContext(ResponseContext);
+  const [expandedState, setExpandedState] = useState({});
+  const { queryResponse, isLoading } = useContext(ResponseContext);
   const data = queryResponse?.response?.possibleDiagnoses;
 
+  if (isLoading) {
+    return (
+      <Box sx={{ width: "100vw", backgroundColor: "#eef7fa", pt: 2, pb: 4 }}>
+        <Container>
+          <Skeleton variant="text" width={300} height={40} sx={{ mx: "auto", mb: 2 }} />
+          <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", margin: "0 auto" }}>
+            {[0, 1, 2].map((i) => (
+              <Card key={i} sx={{ borderRadius: "12px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)", flex: "1 1 calc(100% - 32px)", maxWidth: { xs: "100%", sm: "45%", md: "30%" }, minWidth: "368px" }}>
+                <CardContent>
+                  <Box display="flex" justifyContent="space-between" alignItems="center">
+                    <Skeleton variant="text" width="55%" height={32} />
+                    <Skeleton variant="rounded" width={70} height={24} />
+                  </Box>
+                  <Skeleton variant="text" width="45%" sx={{ mt: 1 }} />
+                  <Skeleton variant="text" width="35%" sx={{ mt: 2, mb: 1 }} />
+                  <Skeleton variant="rounded" height={64} sx={{ mb: 1 }} />
+                  <Skeleton variant="rounded" height={64} sx={{ mb: 1 }} />
+                  <Skeleton variant="rounded" height={64} />
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
+        </Container>
+      </Box>
+    );
+  }
 
   if (!queryResponse) {
     return null;

@@ -15,6 +15,7 @@ import docImage from "./assets/doc.png";
 import TreatmentCard from "./components/TreatmentCard/treatmentcard";
 import ResearchStats from "./components/ResearchStats/researchStats";
 import Accordion from "./components/Accordion/accordion";
+import ThinkingSteps from "./components/ThinkingSteps/thinkingSteps";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
         <Divider sx={{ margin: "20px 0 0px 0" }} />
       </Box>
       <QueryName />
+      <ThinkingSteps />
       <RouteCard />
       <InitialTests />
       <TreatmentCard />

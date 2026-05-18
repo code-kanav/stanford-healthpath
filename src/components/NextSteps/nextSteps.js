@@ -1,10 +1,33 @@
 import React, { useContext } from "react";
-import { Card, CardContent, Container, Typography, Box } from "@mui/material";
+import { Card, CardContent, Container, Typography, Box, Skeleton } from "@mui/material";
 import { ResponseContext } from "../../context/responseContext";
 
 const NextSteps = () => {
-const { queryResponse } = useContext(ResponseContext);
+  const { queryResponse, isLoading } = useContext(ResponseContext);
   const data = queryResponse?.response?.nextSteps;
+
+  if (isLoading) {
+    return (
+      <Box sx={{ width: "100vw", backgroundColor: "#eef7fa", pt: 2, pb: 6, mb: 3 }}>
+        <Container>
+          <Skeleton variant="text" width={320} height={40} sx={{ mx: "auto", mb: 2 }} />
+          <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", margin: "0 auto" }}>
+            {[0, 1, 2].map((i) => (
+              <Card key={i} variant="outlined" sx={{ borderRadius: "12px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)", flex: "1 1 calc(100% - 32px)", maxWidth: { xs: "100%", sm: "45%", md: "30%" }, minWidth: "368px" }}>
+                <CardContent sx={{ padding: "24px" }}>
+                  <Skeleton variant="text" width="65%" height={32} />
+                  <Skeleton variant="text" width="40%" sx={{ mb: 2 }} />
+                  <Skeleton variant="rounded" height={48} sx={{ mb: 1 }} />
+                  <Skeleton variant="rounded" height={48} sx={{ mb: 1 }} />
+                  <Skeleton variant="rounded" height={48} />
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
+        </Container>
+      </Box>
+    );
+  }
 
   if (!queryResponse) {
     return null;

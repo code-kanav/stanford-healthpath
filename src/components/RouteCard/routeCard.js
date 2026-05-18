@@ -1,11 +1,41 @@
 import React, { useContext } from "react";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, Skeleton } from "@mui/material";
 import { ResponseContext } from "../../context/responseContext";
 
 
 
+const skeletonBg = ["#EAF8E9", "#E3F2FD", "#F3E5F5"];
+
 const RouteCards = () => {
-  const { queryResponse } = useContext(ResponseContext);
+  const { queryResponse, isLoading } = useContext(ResponseContext);
+
+  if (isLoading) {
+    return (
+      <Container>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" },
+            gap: 2,
+            pt: 2,
+            pb: 3,
+            mb: 3,
+            mt: 2,
+          }}
+        >
+          {skeletonBg.map((bg, i) => (
+            <Box key={i} sx={{ backgroundColor: bg, borderRadius: "8px", padding: "16px", textAlign: "center", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
+              <Skeleton variant="text" width="60%" height={32} sx={{ mx: "auto" }} />
+              <Skeleton variant="text" width="45%" height={56} sx={{ mx: "auto", my: 1 }} />
+              <Skeleton variant="text" width="55%" sx={{ mx: "auto" }} />
+              <Skeleton variant="text" width="75%" sx={{ mx: "auto" }} />
+            </Box>
+          ))}
+        </Box>
+      </Container>
+    );
+  }
+
   const data = [
     {
       title: "Fastest Resolution",

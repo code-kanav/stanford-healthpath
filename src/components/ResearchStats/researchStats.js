@@ -97,7 +97,6 @@ const ResearchStats = () => {
           variant="body2"
           sx={{
             mt: 6,
-            color: "#888",
             fontStyle: "italic",
             color: "rgba(255, 255, 255, 0.88)",
           }}

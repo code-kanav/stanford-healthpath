@@ -31,7 +31,7 @@ const SearchBar = () => {
   const fetchSuggestions = async (query) => {
     try {
       const response = await axios.post(
-        "https://healthpath-backend.onrender.com/suggestions",
+        "https://healthpath-backend-1-vurf.onrender.com/suggestions",
         { input: query } // Use "input" as the key in the request payload
       );
       setSuggestions(response.data.suggestions || []);
@@ -70,7 +70,7 @@ const SearchBar = () => {
 
     setIsLoading(true);
     try {
-      const endpoint = file ? "https://healthpath-backend-1l29.onrender.com/upload" : "http://localhost:3001/query";
+      const endpoint = file ? "https://healthpath-backend-1-vurf.onrender.com/upload" : "https://healthpath-backend-1-vurf.onrender.com/query";
       const config = file
         ? { headers: { "Content-Type": "multipart/form-data" } }
         : {};
